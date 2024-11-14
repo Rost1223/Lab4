@@ -2,7 +2,7 @@ name: Publish on GitHub Pages
 
 on:
   release:
-    types: [created]
+    types: [created]# тип события релиза, который запускает рабочий процесс создания
 
 jobs:
   build-and-deploy:
@@ -10,11 +10,11 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v2 # клонирования репозитория для доступа на виртуальной машине
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: peaceiris/actions-gh-pages@v3 # Действие peaceiris/actions-gh-pages используется для автоматического деплоя статических сайтов на GitHub Pages. Оно позволяет легко развернуть содержимое вашего репозитория на GitHub Pages, что делает его доступным по определенному URL.
       with:
-        github_token: ${{ secrets.MY_TOKEN }}
-        publish_dir: ./
-        destination_dir: ./${{ github.event.release.tag_name }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./ #содержимое которой будет опубликованно
+        destination_dir: ./${{ github.event.release.tag_name }} # содержимое будет скопировано в директорию, имя которой соответствует тегу релиза 
