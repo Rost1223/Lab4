@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2 # клонирования репозитория для доступа на виртуальной машине
+      uses: actions/checkout@v3 # клонирования репозитория для доступа на виртуальной машине
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3 # Действие peaceiris/actions-gh-pages используется для автоматического деплоя статических сайтов на GitHub Pages. Оно позволяет легко развернуть содержимое вашего репозитория на GitHub Pages, что делает его доступным по определенному URL.
